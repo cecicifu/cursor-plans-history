@@ -23,7 +23,7 @@ Cursor uses the Open VSX registry. Open the Extensions view (`Ctrl+Shift+X`), se
 
 ### VS Code
 
-Open the Extensions view (`Ctrl+Shift+X`), search for **Cursor Plans History** and click **Install**, or grab the `.vsix` from [GitHub Releases](https://github.com/your-publisher/cursor-plans-history/releases) and install it via `Extensions: Install from VSIX...`.
+Open the Extensions view (`Ctrl+Shift+X`), search for **Cursor Plans History** and click **Install**, or grab the `.vsix` from [GitHub Releases](https://github.com/cecicifu/cursor-plans-history/releases) and install it via `Extensions: Install from VSIX...`.
 
 ## Usage
 
