@@ -1,0 +1,305 @@
+{
+  "name": "cursor-plans-history",
+  "displayName": "%cursorPlans.displayName%",
+  "description": "%cursorPlans.description%",
+  "version": "1.0.0",
+  "publisher": "cecicifu",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "cursor",
+    "plan",
+    "plan mode",
+    "todo",
+    "markdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cecicifu/cursor-plans-history.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cecicifu/cursor-plans-history/issues"
+  },
+  "homepage": "https://github.com/cecicifu/cursor-plans-history#readme",
+  "main": "./dist/extension.cjs",
+  "l10n": "./l10n",
+  "activationEvents": [
+    "onView:cursorPlans.history"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "cursorPlans",
+          "title": "%cursorPlans.viewContainer.title%",
+          "icon": "media/sidebar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "cursorPlans": [
+        {
+          "id": "cursorPlans.history",
+          "name": "%cursorPlans.view.title%",
+          "icon": "media/sidebar-icon.svg",
+          "contextualTitle": "%cursorPlans.viewContainer.title%"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "cursorPlans.history",
+        "contents": "%cursorPlans.welcome.empty%"
+      }
+    ],
+    "commands": [
+      {
+        "command": "cursorPlans.openPreview",
+        "title": "%cursorPlans.command.openPreview%",
+        "category": "%cursorPlans.category%",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "cursorPlans.openSource",
+        "title": "%cursorPlans.command.openSource%",
+        "category": "%cursorPlans.category%",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "cursorPlans.refresh",
+        "title": "%cursorPlans.command.refresh%",
+        "category": "%cursorPlans.category%",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "cursorPlans.search",
+        "title": "%cursorPlans.command.search%",
+        "category": "%cursorPlans.category%",
+        "icon": "$(search)"
+      },
+      {
+        "command": "cursorPlans.revealInOS",
+        "title": "%cursorPlans.command.revealInOS%",
+        "category": "%cursorPlans.category%"
+      },
+      {
+        "command": "cursorPlans.copyPath",
+        "title": "%cursorPlans.command.copyPath%",
+        "category": "%cursorPlans.category%"
+      },
+      {
+        "command": "cursorPlans.rename",
+        "title": "%cursorPlans.command.rename%",
+        "category": "%cursorPlans.category%"
+      },
+      {
+        "command": "cursorPlans.delete",
+        "title": "%cursorPlans.command.delete%",
+        "category": "%cursorPlans.category%",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "cursorPlans.configure",
+        "title": "%cursorPlans.command.configure%",
+        "category": "%cursorPlans.category%",
+        "icon": "$(gear)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "cursorPlans.search",
+          "when": "view == cursorPlans.history",
+          "group": "navigation@1"
+        },
+        {
+          "command": "cursorPlans.refresh",
+          "when": "view == cursorPlans.history",
+          "group": "navigation@2"
+        },
+        {
+          "command": "cursorPlans.configure",
+          "when": "view == cursorPlans.history",
+          "group": "navigation@3"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "cursorPlans.openPreview",
+          "when": "view == cursorPlans.history && viewItem == plan",
+          "group": "navigation@1"
+        },
+        {
+          "command": "cursorPlans.openSource",
+          "when": "view == cursorPlans.history && viewItem == plan",
+          "group": "navigation@2"
+        },
+        {
+          "command": "cursorPlans.revealInOS",
+          "when": "view == cursorPlans.history && viewItem == plan",
+          "group": "1_files@1"
+        },
+        {
+          "command": "cursorPlans.copyPath",
+          "when": "view == cursorPlans.history && viewItem == plan",
+          "group": "1_files@2"
+        },
+        {
+          "command": "cursorPlans.rename",
+          "when": "view == cursorPlans.history && viewItem == plan",
+          "group": "2_modify@1"
+        },
+        {
+          "command": "cursorPlans.delete",
+          "when": "view == cursorPlans.history && viewItem == plan",
+          "group": "2_modify@2"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "cursorPlans.openPreview",
+          "when": "false"
+        },
+        {
+          "command": "cursorPlans.openSource",
+          "when": "false"
+        },
+        {
+          "command": "cursorPlans.revealInOS",
+          "when": "false"
+        },
+        {
+          "command": "cursorPlans.copyPath",
+          "when": "false"
+        },
+        {
+          "command": "cursorPlans.rename",
+          "when": "false"
+        },
+        {
+          "command": "cursorPlans.delete",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%cursorPlans.config.title%",
+      "properties": {
+        "cursorPlans.globalPlansDir": {
+          "type": "string",
+          "default": "~/.cursor/plans",
+          "scope": "machine-overridable",
+          "description": "%cursorPlans.config.globalPlansDir%"
+        },
+        "cursorPlans.includeWorkspace": {
+          "type": "boolean",
+          "default": true,
+          "description": "%cursorPlans.config.includeWorkspace%"
+        },
+        "cursorPlans.workspaceGlobs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".cursor/plans/**/*.plan.md"
+          ],
+          "description": "%cursorPlans.config.workspaceGlobs%"
+        },
+        "cursorPlans.extraGlobs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "%cursorPlans.config.extraGlobs%"
+        },
+        "cursorPlans.groupBy": {
+          "type": "string",
+          "enum": [
+            "source",
+            "date",
+            "none"
+          ],
+          "enumDescriptions": [
+            "%cursorPlans.config.groupBy.source%",
+            "%cursorPlans.config.groupBy.date%",
+            "%cursorPlans.config.groupBy.none%"
+          ],
+          "default": "source",
+          "description": "%cursorPlans.config.groupBy%"
+        },
+        "cursorPlans.sortBy": {
+          "type": "string",
+          "enum": [
+            "modified-desc",
+            "modified-asc",
+            "name"
+          ],
+          "enumDescriptions": [
+            "%cursorPlans.config.sortBy.modifiedDesc%",
+            "%cursorPlans.config.sortBy.modifiedAsc%",
+            "%cursorPlans.config.sortBy.name%"
+          ],
+          "default": "modified-desc",
+          "description": "%cursorPlans.config.sortBy%"
+        },
+        "cursorPlans.useCustomEditor": {
+          "type": "boolean",
+          "default": false,
+          "description": "%cursorPlans.config.useCustomEditor%"
+        },
+        "cursorPlans.confirmDelete": {
+          "type": "boolean",
+          "default": true,
+          "description": "%cursorPlans.config.confirmDelete%"
+        }
+      }
+    },
+    "keybindings": []
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.js --production",
+    "watch": "node esbuild.js --watch",
+    "compile-tests": "tsc -p tsconfig.test.json",
+    "pretest": "npm run compile-tests && npm run build",
+    "test": "vscode-test",
+    "lint": "eslint src",
+    "format": "prettier --write \"src/**/*.ts\" \"*.{json,md}\"",
+    "package": "vsce package --no-dependencies",
+    "publish:vsce": "vsce publish --no-dependencies",
+    "publish:ovsx": "ovsx publish --no-dependencies"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.10.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-task-lists": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^20.16.10",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "@vscode/l10n-dev": "^0.0.35",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^3.1.1",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.12.0",
+    "mocha": "^10.7.3",
+    "ovsx": "^0.10.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  }
+}

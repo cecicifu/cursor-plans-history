@@ -1,0 +1,47 @@
+.hljs {
+  color: var(--vscode-editor-foreground);
+  background: transparent;
+}
+.hljs-comment,
+.hljs-quote {
+  color: var(--vscode-editorLineNumber-foreground, #6a737d);
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {
+  color: var(--vscode-symbolIcon-keywordForeground, #c586c0);
+}
+.hljs-string,
+.hljs-attr {
+  color: var(--vscode-symbolIcon-stringForeground, #ce9178);
+}
+.hljs-number,
+.hljs-literal {
+  color: var(--vscode-symbolIcon-numberForeground, #b5cea8);
+}
+.hljs-title,
+.hljs-function,
+.hljs-class,
+.hljs-section,
+.hljs-type {
+  color: var(--vscode-symbolIcon-functionForeground, #dcdcaa);
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute {
+  color: var(--vscode-symbolIcon-variableForeground, #9cdcfe);
+}
+.hljs-meta,
+.hljs-symbol,
+.hljs-link {
+  color: var(--vscode-textLink-foreground, #569cd6);
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
