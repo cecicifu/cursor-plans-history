@@ -2,7 +2,7 @@
   "name": "cursor-plans-history",
   "displayName": "%cursorPlans.displayName%",
   "description": "%cursorPlans.description%",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "publisher": "cecicifu",
   "license": "MIT",
   "icon": "icon.png",
