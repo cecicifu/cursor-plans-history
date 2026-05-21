@@ -2,6 +2,24 @@
 
 All notable changes to this extension will be documented in this file.
 
+## [1.2.0] - 2026-05-21
+
+### Changed
+
+- Update the configure command.
+- Improve syntax highlighting in Markdown rendering.
+
+### Fixed
+
+- Improve error handling in the file watcher.
+- Improve error handling in Markdown rendering.
+
+## [1.1.0] - 2026-05-21
+
+### Changed
+
+- Version bump only.
+
 ## [1.0.0] - 2026-05-19
 
 ### Added
