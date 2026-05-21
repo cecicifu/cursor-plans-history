@@ -54,10 +54,12 @@ export class PlanFileWatcher implements vscode.Disposable {
         const evt: WatcherEvent = event === "rename" ? "created" : "changed";
         this.schedule(uri, evt);
       });
-      watcher.on("error", () => {
+      watcher.on("error", (err) => {
+        console.warn(`[cursor-plans] fs.watch error on ${dir}:`, err);
       });
       this.fsWatchers.push(watcher);
-    } catch {
+    } catch (err) {
+      console.warn(`[cursor-plans] fs.watch failed on ${dir}:`, err);
     }
   }
 
