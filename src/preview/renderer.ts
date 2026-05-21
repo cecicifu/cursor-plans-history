@@ -55,15 +55,22 @@ const md = new MarkdownIt({
   breaks: false,
   typographer: true,
   highlight(str: string, lang: string): string {
-    if (lang && hljs.getLanguage(lang)) {
+    const normalized = (lang || "").trim().split(/\s+/)[0].toLowerCase();
+    if (normalized && hljs.getLanguage(normalized)) {
       try {
-        return `<pre class="hljs"><code class="language-${escapeAttr(lang)}">${
-          hljs.highlight(str, { language: lang, ignoreIllegals: true }).value
+        return `<pre class="hljs"><code class="language-${escapeAttr(normalized)}">${
+          hljs.highlight(str, { language: normalized, ignoreIllegals: true }).value
         }</code></pre>`;
       } catch {
       }
     }
-    return `<pre class="hljs"><code>${md.utils.escapeHtml(str)}</code></pre>`;
+    try {
+      const auto = hljs.highlightAuto(str);
+      const cls = auto.language ? ` class="language-${escapeAttr(auto.language)}"` : "";
+      return `<pre class="hljs"><code${cls}>${auto.value}</code></pre>`;
+    } catch {
+      return `<pre class="hljs"><code>${md.utils.escapeHtml(str)}</code></pre>`;
+    }
   },
 });
 
