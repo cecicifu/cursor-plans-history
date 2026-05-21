@@ -20,3 +20,4 @@ icon-source.png
 **/*.vsix
 screenshots/**
 .editorconfig
+.cursor/**
