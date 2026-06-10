@@ -97,8 +97,7 @@ export function registerCommands(deps: Deps): vscode.Disposable[] {
       await vscode.workspace.fs.stat(targetUri);
       void vscode.window.showErrorMessage(vscode.l10n.t("A plan with that name already exists"));
       return;
-    } catch {
-    }
+    } catch {}
     try {
       preview.closeIfOpen(uri);
       await vscode.workspace.fs.rename(uri, targetUri, { overwrite: false });
@@ -124,7 +123,7 @@ export function registerCommands(deps: Deps): vscode.Disposable[] {
     }
     try {
       preview.closeIfOpen(uri);
-      await vscode.workspace.fs.delete(uri, { useTrash: true });
+      await vscode.workspace.fs.delete(uri, { useTrash: vscode.env.remoteName === undefined });
       treeProvider.refresh();
       void vscode.window.setStatusBarMessage(vscode.l10n.t("Plan deleted"), 2000);
     } catch (err) {
