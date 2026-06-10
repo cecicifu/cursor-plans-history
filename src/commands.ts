@@ -132,11 +132,9 @@ export function registerCommands(deps: Deps): vscode.Disposable[] {
     }
   });
 
-  reg("cursorPlans.configure", () => {
-    void vscode.commands.executeCommand(
-      "workbench.action.openSettings",
-      "@ext:cecicifu.cursor-plans-history",
-    );
+  reg("cursorPlans.configure", async () => {
+    const query = vscode.env.remoteName ? "cursorPlans" : "@ext:cecicifu.cursor-plans-history";
+    await vscode.commands.executeCommand("workbench.action.openSettings", query);
   });
 
   return disposables;
