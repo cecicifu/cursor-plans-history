@@ -2,6 +2,13 @@
 
 All notable changes to this extension will be documented in this file.
 
+## [1.2.1] - 2026-06-10
+
+### Fixed
+
+- Use different configure command if the extension is on a remote.
+- Don't use trash if extension is on a remote.
+
 ## [1.2.0] - 2026-05-21
 
 ### Changed
