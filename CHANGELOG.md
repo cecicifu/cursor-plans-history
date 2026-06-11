@@ -7,7 +7,7 @@ All notable changes to this extension will be documented in this file.
 ### Fixed
 
 - Use different configure command if the extension is on a remote.
-- Don't use trash if extension is on a remote.
+- Don't use trash on delete plans if extension is on a remote.
 
 ## [1.2.0] - 2026-05-21
 
